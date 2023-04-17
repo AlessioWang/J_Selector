@@ -1,3 +1,5 @@
+package Demo;
+
 import core.Container;
 import core.J_Selector;
 import guo_cam.CameraController;
@@ -13,7 +15,7 @@ import java.util.List;
  * @auther Alessio
  * @date 2023/4/12
  **/
-public class RayTest extends PApplet {
+public class demo extends PApplet {
 
     private CameraController cameraController;
 
@@ -34,7 +36,7 @@ public class RayTest extends PApplet {
 //    private WB_Point result;
 
     public static void main(String[] args) {
-        PApplet.main(RayTest.class.getName());
+        PApplet.main(demo.class.getName());
     }
 
     public void settings() {
