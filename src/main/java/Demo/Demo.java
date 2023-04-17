@@ -15,7 +15,7 @@ import java.util.List;
  * @auther Alessio
  * @date 2023/4/12
  **/
-public class demo extends PApplet {
+public class Demo extends PApplet {
 
     private CameraController cameraController;
 
@@ -36,7 +36,7 @@ public class demo extends PApplet {
 //    private WB_Point result;
 
     public static void main(String[] args) {
-        PApplet.main(demo.class.getName());
+        PApplet.main(Demo.class.getName());
     }
 
     public void settings() {
@@ -87,7 +87,7 @@ public class demo extends PApplet {
     @Override
     public void mousePressed() {
         if (mousePressed && mouseButton == LEFT) {
-            selectedShape = selector.getSelected(this);
+            selectedShape = selector.getSelectedPolygon(this);
         }
     }
 

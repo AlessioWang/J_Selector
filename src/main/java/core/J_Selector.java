@@ -25,6 +25,14 @@ public class J_Selector {
         this.camera = camera;
     }
 
+    public WB_Polygon getSelectedPolygon(PApplet applet) {
+        WB_Ray ray = getCameraRay(applet, camera);
+
+        List<WB_Polygon> polygons = container.getPolygons();
+
+        return pickNearestPolygon(ray, polygons);
+    }
+
     public WB_Polygon getSelected(PApplet applet) {
         WB_Ray ray = getCameraRay(applet, camera);
 
@@ -98,4 +106,37 @@ public class J_Selector {
 
         return map.get(queue.poll());
     }
+
+    /**
+     * 获取最近的polygon
+     * @param ray
+     * @param polygons
+     * @return
+     */
+    private WB_Polygon pickNearestPolygon(WB_Ray ray, List<WB_Polygon> polygons) {
+        Map<WB_Polygon, WB_Point> map = new HashMap<>();
+
+        PriorityQueue<Map.Entry<WB_Polygon, WB_Point>> queue = new PriorityQueue<>((p1, p2) ->
+                (int) (p1.getValue().getDistance3D(ray.getOrigin()) - p2.getValue().getDistance3D(ray.getOrigin()))
+        );
+
+        for (var p : polygons) {
+            WB_IntersectionResult intersection3D = WB_GeometryOp.getIntersection3D(ray, p);
+            if (intersection3D.intersection) {
+                map.put(p, (WB_Point) intersection3D.object);
+            }
+        }
+
+        map.entrySet().forEach(queue::add);
+
+        if (queue.size() != 0) {
+            return queue.poll().getKey();
+        }
+
+        return null;
+    }
+
+
 }
+
+

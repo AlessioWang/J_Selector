@@ -1,6 +1,8 @@
 # Project exclude paths
 /target/
 /test/
+/pick3D/
 
 
 pom.xml
+/src/main/java/pick3D/
