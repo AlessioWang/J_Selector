@@ -33,6 +33,10 @@ public class J_Selector {
         return pickNearestPolygon(ray, polygons);
     }
 
+//    public WB_Polygon getSelectedPolygon() {
+//
+//    }
+
     public WB_Polygon getSelected(PApplet applet) {
         WB_Ray ray = getCameraRay(applet, camera);
 
@@ -109,6 +113,7 @@ public class J_Selector {
 
     /**
      * 获取最近的polygon
+     *
      * @param ray
      * @param polygons
      * @return

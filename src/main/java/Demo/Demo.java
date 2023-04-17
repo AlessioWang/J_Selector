@@ -73,15 +73,16 @@ public class Demo extends PApplet {
         polygon3 = new WB_Polygon(
                 new WB_Point(-200, 0, 1000),
                 new WB_Point(500, 0, 1200),
-                new WB_Point(200, 500, 1600),
-                new WB_Point(0, 500, 1500),
+                new WB_Point(200, 500, 1300),
+                new WB_Point(0, 500, 1200),
                 new WB_Point(-200, 200, 1000));
 
         polygons.add(polygon1);
         polygons.add(polygon2);
         polygons.add(polygon3);
 
-        container = new Container(polygons);
+        container = new Container();
+        container.addPolygons(polygons);
     }
 
     @Override
@@ -95,7 +96,7 @@ public class Demo extends PApplet {
         background(255, 255, 255);
         cameraController.drawSystem(100);
 
-        fill(0,50,50, 50);
+        fill(0, 50, 50, 50);
         render.drawPolygonEdges(polygon1);
         render.drawPolygonEdges(polygon2);
         render.drawPolygonEdges(polygon3);
