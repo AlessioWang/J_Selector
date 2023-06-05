@@ -1,3 +1,4 @@
+
 package Demo;
 
 import core.Container;
@@ -15,7 +16,7 @@ import java.util.List;
  * @auther Alessio
  * @date 2023/4/12
  **/
-public class Demo extends PApplet {
+public class Demo_Polygon extends PApplet {
 
     private CameraController cameraController;
 
@@ -36,7 +37,7 @@ public class Demo extends PApplet {
 //    private WB_Point result;
 
     public static void main(String[] args) {
-        PApplet.main(Demo.class.getName());
+        PApplet.main(Demo_Polygon.class.getName());
     }
 
     public void settings() {
@@ -53,6 +54,9 @@ public class Demo extends PApplet {
         render = new WB_Render(this);
     }
 
+    /**
+     * 向container添加图元
+     */
     private void initShapes() {
         List<WB_Polygon> polygons = new ArrayList<>();
 
@@ -81,10 +85,15 @@ public class Demo extends PApplet {
         polygons.add(polygon2);
         polygons.add(polygon3);
 
+
+
         container = new Container();
         container.addPolygons(polygons);
     }
 
+    /**
+     * 通过鼠标点选获取polygon
+     */
     @Override
     public void mousePressed() {
         if (mousePressed && mouseButton == LEFT) {

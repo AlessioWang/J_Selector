@@ -7,6 +7,7 @@ All check shape elements should be added in Container.
 Tips: There is a demo in Demo folder.
 ## Support element:
 - WB_Polygon
+- He_mesh
 
 ## Dependencies:
 - He_mesh

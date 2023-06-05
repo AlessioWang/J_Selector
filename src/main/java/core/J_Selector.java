@@ -25,6 +25,12 @@ public class J_Selector {
         this.camera = camera;
     }
 
+    /**
+     * 获取polygon
+     *
+     * @param applet
+     * @return
+     */
     public WB_Polygon getSelectedPolygon(PApplet applet) {
         WB_Ray ray = getCameraRay(applet, camera);
 
@@ -33,21 +39,18 @@ public class J_Selector {
         return pickNearestPolygon(ray, polygons);
     }
 
-//    public WB_Polygon getSelectedPolygon() {
-//
-//    }
-
-    public WB_Polygon getSelected(PApplet applet) {
+    /**
+     * 获取he_mesh
+     *
+     * @param applet
+     * @return
+     */
+    public HE_Mesh getSelectedMesh(PApplet applet) {
         WB_Ray ray = getCameraRay(applet, camera);
 
-        List<WB_Polygon> polygons = container.getPolygons();
-        Map<HE_Mesh, WB_Polygon> map = new HashMap<>();
+        List<HE_Mesh> meshes = container.getMeshes();
 
-        polygons.forEach(e -> map.put(createMeshFromPolygon(e), e));
-
-        HE_Mesh pickedMesh = pickNearestMesh(ray, new LinkedList<>(map.keySet()));
-
-        return map.get(pickedMesh);
+        return pickNearestMesh(ray, meshes);
     }
 
     /**
