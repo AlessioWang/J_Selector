@@ -85,8 +85,6 @@ public class Demo_Polygon extends PApplet {
         polygons.add(polygon2);
         polygons.add(polygon3);
 
-
-
         container = new Container();
         container.addPolygons(polygons);
     }
